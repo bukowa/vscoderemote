@@ -30,10 +30,9 @@ RUN sudo apt-get -y install \
        $(lsb_release -cs) \
        stable" &&\
     sudo apt-get update &&\
-    sudo apt-get -y install docker-ce docker-ce-cli containerd.io &&\
-    apt-cache madison docker-ce &&\
-    sudo apt-get -y install containerd.io
+    sudo apt-get -y install docker-ce-cli &&\
+    apt-cache madison docker-ce
 
 RUN sudo apt-get -y install git
-
-WORKDIR /home/coder/project
+USER root
+WORKDIR /root/project
