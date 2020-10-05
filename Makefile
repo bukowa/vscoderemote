@@ -11,8 +11,7 @@ certbot:
 	${CERTBOT} -d ${DOMAIN} -m ${EMAIL}
 
 deploy:
-	DOMAIN=${DOMAIN} docker-compose up -d
-
+	DOMAIN=${DOMAIN} docker-compose up --build -d
 
 TAG=vsremote
 CERTBOT=${TAG}-certbot
