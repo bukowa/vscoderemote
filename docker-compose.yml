@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+
+  vsremote:
+    restart: always
+    build:
+      context: .
+    ports:
+    - 7777:8080
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - ./certs/keys/archive/${DOMAIN}:/certs
+    - source:/root
+    command: ["--cert", "/certs/cert1.pem", "--cert-key", "/certs/privkey1.pem"]
+
+volumes:
+  source:
